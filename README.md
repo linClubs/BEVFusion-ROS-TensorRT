@@ -9,7 +9,9 @@ This repository contains source code and models for BEVFusion online real-time i
 
 + **`ubuntu-20.04,noetic,cuda-11.3, cudnn-8.6.0, TensorRT-8.5`**
 
-+ 默认已安装`noetic, cuda, cudnn`, 已下载`TensorRT`源码
+1. 默认已安装`noetic, cuda, cudnn`, 已下载`TensorRT`源码
+
+2. `ros`依赖
 
 ~~~python
 # 1. 建立ros工作空间
@@ -23,6 +25,11 @@ git clone https://github.com/linClubs/BEVFusion-ROS-TensorRT.git
 cd ../ 
 rosdep install -r -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 ~~~
+
+3. [模型下载参考](https://github.com/linClubs/BEVFusion-ROS-TensorRT/blob/main/model/readme.md)
+
+4. [模型导出参考](https://github.com/NVIDIA-AI-IOT/Lidar_AI_Solution/blob/master/CUDA-BEVFusion/qat/README.md)
+
 
 # 2 编译运行
 
