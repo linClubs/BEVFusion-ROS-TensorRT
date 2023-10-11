@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/local/cuda/include/**",
+                "~/software/TensorRT-8.5.3.1/include/**",
+                "/home/lin/software/miniconda3/envs/bevfusion/include/python3.8/",
+                // "/opt/conda/include/python3.8/**",
+                "${workspaceFolder}/src/**",
+                "/home/lin/code/CUDA-BEVFusion/third_party/stb",
+                "/home/lin/code/CUDA-BEVFusion/third_party/pybind11/include/**",
+                "/usr/include/opencv4",
+                "/usr/include/pcl-1.10",
+                "/usr/include/eigen3",
+                "/home/lin/code/CUDA-BEVFusion/third_party"
+                // "${workspaceFolder}/../cuOSD/src/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
