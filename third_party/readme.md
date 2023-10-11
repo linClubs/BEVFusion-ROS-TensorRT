@@ -5,7 +5,4 @@
 ~~~python
 cd third_party
 git clone https://github.com/nothings/stb.git
-
-
-
 ~~~
