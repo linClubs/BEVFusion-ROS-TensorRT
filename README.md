@@ -2,7 +2,7 @@
 
 This repository contains source code and models for BEVFusion online real-time inference using CUDA, TensorRT & ROS.
 
-![](https://github.com/linClubs/BEVFusion-ROS-TensorRT/blob/main/build/cuda-bevfusion.gif)
+![](configs/cuda-bevfusion.gif)
 
 
 # 1 依赖安装
