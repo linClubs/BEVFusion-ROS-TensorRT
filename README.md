@@ -59,6 +59,13 @@ set(TensorRT_LIBS ${TensorRT_ROOT}/lib/)
 ~~~
 
 2. 编译运行
+
++ `bevfusion_node.launch`修改`model_name`与`precision`参数值
+
+`model_name: resnet50/resnet50int8/swint`
+`precision:  fp16/int8`
+`swint + int8`模式不能工作
+
 ~~~python
 # 1. 编译
 catkin_make
@@ -67,7 +74,10 @@ catkin_make
 source devel/setup.bash
 
 # 3. 运行bevfusion_node
-rosrun bevfusion bevfusion_node
+roslaunch bevfusion bevfusion_node.launch
+
+# 4. 播放数据集
+ rosbag play 103.bag 
 ~~~
 
 ---

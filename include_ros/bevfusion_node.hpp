@@ -45,7 +45,7 @@ class RosNode : BEVFusionNode
 	std::shared_ptr<Sync> sync;
   
  public:
-  RosNode()
+  RosNode(const std::string model_name, const std::string  precision) : BEVFusionNode(model_name, precision)
   { 
     pub_img = n.advertise<sensor_msgs::Image>("/bevfusion/image_raw", 10);
     sub_cloud.subscribe(n,"/lidar_top", 10);

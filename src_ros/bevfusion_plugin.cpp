@@ -107,7 +107,8 @@ void free_images(std::vector<unsigned char*>& images)
   images.clear();
 }
 
-std::shared_ptr<bevfusion::Core> create_core(const std::string& model, const std::string& precision) {
+std::shared_ptr<bevfusion::Core> create_core(const std::string& model, const std::string& precision) 
+{
 
   printf("Create by %s, %s\n", model.c_str(), precision.c_str());
   bevfusion::camera::NormalizationParameter normalization;
@@ -182,11 +183,13 @@ std::shared_ptr<bevfusion::Core> create_core(const std::string& model, const std
 }
 
 
-BEVFusionNode::BEVFusionNode()
+BEVFusionNode::BEVFusionNode(const std::string& model_name, const std::string& precision)
+  : model_name_(model_name), precision_(precision)
 { 
-  
+  config_path = pkg_path + "/configs";
+
   cloud_.reset(new pcl::PointCloud<PointT>());
-  core = create_core(model, precision);
+  core = create_core(model_name_, precision_);
 
   if (core == nullptr) 
   {

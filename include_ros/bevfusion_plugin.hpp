@@ -69,10 +69,12 @@ class BEVFusionNode
 {
  private:
 	 // 测试数据的目录，模型, 模型预测的精度
-	std::string data_path = pkg_path + "/example-data";
-	const char* model     = "resnet50int8";
-	const char* precision = "int8";
-	std::string config_path = pkg_path + "/configs";
+	// std::string data_path = pkg_path + "/example-data";
+	// const char* model;
+	// const char* precision;
+	std::string model_name_;
+	std::string precision_;
+	std::string config_path;
 	
 	// Tensor类型内外参数
 	nv::Tensor camera2lidar; 
@@ -93,7 +95,7 @@ class BEVFusionNode
 	cudaStream_t stream;
 	
  public:
-	BEVFusionNode();
+	BEVFusionNode(const std::string& model, const std::string& precision);
 	~BEVFusionNode();
 	
 	// 推理
