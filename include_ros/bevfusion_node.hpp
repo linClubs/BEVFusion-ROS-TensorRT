@@ -66,6 +66,7 @@ class RosNode : BEVFusionNode
     
   };
   ~RosNode(){};
+
   void callback(const sensor_msgs::PointCloud2ConstPtr& msg_cloud, 
     const sensor_msgs::ImageConstPtr& msg_f_img,
     const sensor_msgs::ImageConstPtr& msg_fl_img,
@@ -73,13 +74,11 @@ class RosNode : BEVFusionNode
     const sensor_msgs::ImageConstPtr& msg_b_img,
     const sensor_msgs::ImageConstPtr& msg_bl_img,
     const sensor_msgs::ImageConstPtr& msg_br_img);
-
-  
 };
 
 
 
-void  RosNode::callback(const sensor_msgs::PointCloud2ConstPtr& msg_cloud, 
+void RosNode::callback(const sensor_msgs::PointCloud2ConstPtr& msg_cloud, 
   const sensor_msgs::ImageConstPtr& msg_f_img,
   const sensor_msgs::ImageConstPtr& msg_fl_img,
   const sensor_msgs::ImageConstPtr& msg_fr_img,

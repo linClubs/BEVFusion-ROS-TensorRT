@@ -36,6 +36,9 @@ rosdep install -r -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 
 如果需接真实的传感器进行场景测试,需提前完成**训练**和**标定**工作
 
+[传感器标定参考](https://github.com/linClubs/Calibration-Is-All-You-Need)
+
+
 [`nuscenes2rosbag`](https://github.com/linClubs/nuscenes2rosbag)
 
 # 2 编译运行
