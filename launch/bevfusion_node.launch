@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="bevfusion" name="bevfusion_node" type="bevfusion_node" output="screen" />
+</launch>

@@ -20,7 +20,7 @@ set(CUDA_NVCC_FLAGS_DEBUG   "-std=c++14 -O0 -g -DENABLE_TEXT_BACKEND_STB")
 
 set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} 
   # -gencode arch=compute_$ENV{CUDASM},code=compute_$ENV{CUDASM}
-  -gencode arch=compute_80,code=compute_80
+  -gencode arch=compute_86,code=compute_86
 )
 
 # cuda
@@ -30,8 +30,8 @@ set(CUDA_INCLUDE_DIRS ${CUDA_TOOLKIT_ROOT_DIR}/${CUDA_INSTALL_TARGET_DIR}/includ
 set(CUDA_LIBS ${CUDA_TOOLKIT_ROOT_DIR}/${CUDA_INSTALL_TARGET_DIR}/lib)
 
 # TENSORRT
-# set(TensorRT_ROOT /home/lin/software/TensorRT-8.5.3.1)
-set(TensorRT_ROOT ~/share/TensorRT-8.5.3.1)
+set(TensorRT_ROOT /home/lin/software/TensorRT-8.5.3.1)
+# set(TensorRT_ROOT ~/share/TensorRT-8.5.3.1)
 set(TensorRT_INCLUDE_DIRS ${TensorRT_ROOT}/include)
 set(TensorRT_LIBS ${TensorRT_ROOT}/lib/)
 
@@ -74,7 +74,7 @@ include_directories(
   ${Protobuf_INCLUDE_DIRS}
   ${CUDA_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
-  src_ros/
+  include_ros
 )
 
 catkin_package()
@@ -116,13 +116,12 @@ target_link_libraries(bevfusion_core
 )
 
 ####################### bevfusion program #############################
-
-# cuda_add_executable(bevfusion_ros
-#   src_ros/bevfusion_ros.cpp src_ros/bevfusion_plugin.cpp
+# cuda_add_executable(demo
+#   src_ros/demo.cpp src_ros/bevfusion_plugin.cpp
 #   ${VISUALIZE_FILES}
 # )
 
-# target_link_libraries(bevfusion_node
+# target_link_libraries(demo
 #   bevfusion_core
 #   libnvinfer.so
 #   libspconv.so
@@ -134,30 +133,13 @@ target_link_libraries(bevfusion_core
 #   ${catkin_LIBRARIES}
 # )
 
+# bevfusion_node
 cuda_add_executable(bevfusion_node
   src_ros/bevfusion_node.cpp src_ros/bevfusion_plugin.cpp
   ${VISUALIZE_FILES}
 )
 
 target_link_libraries(bevfusion_node
-  bevfusion_core
-  libnvinfer.so
-  libspconv.so
-  ${Protobuf_LIBRARIES}
-  libnvinfer_plugin.so
-  
-  ${OpenCV_LIBS}
-  ${PCL_LIBRARIES}
-  ${catkin_LIBRARIES}
-)
-
-
-cuda_add_executable(demo
-  src_ros/demo.cpp src_ros/bevfusion_plugin.cpp
-  ${VISUALIZE_FILES}
-)
-
-target_link_libraries(demo
   bevfusion_core
   libnvinfer.so
   libspconv.so

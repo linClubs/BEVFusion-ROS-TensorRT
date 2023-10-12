@@ -30,6 +30,7 @@
 
 #include "dtype.hpp"
 
+
 namespace nv {
 
 struct Position {

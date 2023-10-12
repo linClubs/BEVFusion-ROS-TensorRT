@@ -30,6 +30,13 @@ rosdep install -r -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 
 4. [模型导出参考](https://github.com/NVIDIA-AI-IOT/Lidar_AI_Solution/blob/master/CUDA-BEVFusion/qat/README.md)
 
+5. `ros`包准备
++ `bevfusion`官方提供了已训练好的`nuscenes`模型参数
++ `nuscenes`传感器之间的参数已给出,无需标定 
+
+如果需接真实的传感器进行场景测试,需提前完成**训练**和**标定**工作
+
+[`nuscenes2rosbag`](https://github.com/linClubs/nuscenes2rosbag)
 
 # 2 编译运行
 
@@ -122,8 +129,9 @@ unsigned char* cv2stb(std::string img_path)
 }
 ~~~
 
-3. `tool/simhei.ttf`找不到, 全局搜索`tool/simhei.ttf`关键字
-修改`simhei.ttf`正确的路径即可
+3. 运行报错`tool/simhei.ttf`找不到, 全局搜索`tool/simhei.ttf`或者`UseFont`关键字
+
+在`/src/common/visualize.cu`中修改`UseFont`的值即可,改成`simhei.ttf`正确的路径即可
 
 ---
 

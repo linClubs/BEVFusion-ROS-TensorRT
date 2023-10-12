@@ -72,9 +72,8 @@ class BEVFusionNode
 	std::string data_path = pkg_path + "/example-data";
 	const char* model     = "resnet50int8";
 	const char* precision = "int8";
-
 	std::string config_path = pkg_path + "/configs";
-
+	
 	// Tensor类型内外参数
 	nv::Tensor camera2lidar; 
 	nv::Tensor camera_intrinsics; 
@@ -92,7 +91,7 @@ class BEVFusionNode
 
 	std::shared_ptr<bevfusion::Core> core;
 	cudaStream_t stream;
-
+	
  public:
 	BEVFusionNode();
 	~BEVFusionNode();

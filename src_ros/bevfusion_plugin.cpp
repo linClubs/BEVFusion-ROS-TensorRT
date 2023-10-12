@@ -185,7 +185,6 @@ std::shared_ptr<bevfusion::Core> create_core(const std::string& model, const std
 BEVFusionNode::BEVFusionNode()
 { 
   
-
   cloud_.reset(new pcl::PointCloud<PointT>());
   core = create_core(model, precision);
 
@@ -328,8 +327,8 @@ void BEVFusionNode::visualize(const std::vector<bevfusion::head::transbbox::Boun
   }
 
   // 保存图像
-  printf("Save to %s\n", (pkg_path + "/build/" + save_path).c_str());
-  stbi_write_jpg((pkg_path + "/build/" + save_path).c_str(), scene_device_image.size(1), scene_device_image.size(0), 3,
+  // printf("Save to %s\n", (pkg_path + "/configs/" + save_path).c_str());
+  stbi_write_jpg((pkg_path + "/configs/" + save_path).c_str(), scene_device_image.size(1), scene_device_image.size(0), 3,
                  scene_device_image.to_host(stream).ptr(), 100);
 
   // cv::Mat img = cv::imread(save_path.c_str());
