@@ -149,3 +149,6 @@ unsigned char* cv2stb(std::string img_path)
 
 + [bevfusion](https://github.com/mit-han-lab/bevfusion)
 + [Lidar_AI_Solution](https://github.com/NVIDIA-AI-IOT/Lidar_AI_Solution)
+
+
++ bev感知交流群-472648720, 欢迎各位小伙伴进群一起学习讨论bev相关知识！！！^_^
