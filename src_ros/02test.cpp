@@ -26,7 +26,9 @@ int main(int argc, char** argv)
 
   printf("Start Detect...\n");
   // 3. 推理
-  auto bevfusion_node = std::make_shared<BEVFusionNode>();
+  std::string model_name = "resnet50int8";
+  std::string precision  = "int8"; 
+  auto bevfusion_node = std::make_shared<BEVFusionNode>(model_name, precision);
   // bevfusion_node->Inference(images, cloud);
   return 0;
 
