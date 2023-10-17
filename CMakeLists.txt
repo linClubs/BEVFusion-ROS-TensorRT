@@ -48,19 +48,13 @@ include_directories(${PCL_INCLUDE_DIRS})
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-  
+  roslib
   message_filters
 
   sensor_msgs
   pcl_conversions
   pcl_ros 
   cv_bridge
-  
-  tf2
-  geometry_msgs
-  jsk_recognition_msgs
-  vision_msgs
-  roslib
 )
 
 include_directories(
@@ -135,7 +129,9 @@ target_link_libraries(bevfusion_core
 
 # bevfusion_node
 cuda_add_executable(bevfusion_node
-  src_ros/bevfusion_node.cpp src_ros/bevfusion_plugin.cpp
+  src_ros/bevfusion_ros_node.cpp 
+  src_ros/bevfusion_ros.cpp 
+  src_ros/bevfusion_plugin.cpp
   ${VISUALIZE_FILES}
 )
 

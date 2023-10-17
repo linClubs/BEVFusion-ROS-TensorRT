@@ -1,7 +1,4 @@
-#define STB_IMAGE_IMPLEMENTATION
-#define STB_IMAGE_WRITE_IMPLEMENTATION  // 预处理器宏定义
-
-#include "bevfusion_node.hpp"
+#include "bevfusion_ros.hpp"
 
 int main(int argc, char** argv) 
 {  
