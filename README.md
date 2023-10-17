@@ -112,7 +112,7 @@ void cloud_cb(const sensor_msgs::PointCloud2::ConstPtr &msg)
         points[i * 5 + 1] = __internal_float2half(ROI_cloud->points[i].y);
         points[i * 5 + 2] = __internal_float2half(ROI_cloud->points[i].z);
         points[i * 5 + 3] = __internal_float2half(1);
-        points[i * 5 + 4] = __internal_float2half(0);
+        points[i * 5 + 4] = __internal_float2half(0);    // 实时激光雷达没有第五维数据可直接赋值0
     }
     vector<int32_t> shape{ROI_cloud->points.size(), 5};
 
