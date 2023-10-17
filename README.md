@@ -22,7 +22,7 @@ cd bevfusion_ws/src
 git clone https://github.com/linClubs/BEVFusion-ROS-TensorRT.git
 
 # 3. 进入bevfusion_ws工作空间一键安装功能包需要ros依赖
-cd ../ 
+cd .. 
 rosdep install -r -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 ~~~
 
