@@ -23,6 +23,7 @@ set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS}
   -gencode arch=compute_86,code=compute_86
 )
 
+# ----------------x86-----------------
 # cuda
 set(CUDA_TOOLKIT_ROOT_DIR /usr/local/cuda-11.3)
 set(CUDA_INSTALL_TARGET_DIR targets/x86_64-linux)
@@ -34,6 +35,17 @@ set(TensorRT_ROOT /home/lin/software/TensorRT-8.5.3.1)
 # set(TensorRT_ROOT ~/share/TensorRT-8.5.3.1)
 set(TensorRT_INCLUDE_DIRS ${TensorRT_ROOT}/include)
 set(TensorRT_LIBS ${TensorRT_ROOT}/lib/)
+# ------------------------------------
+
+# ----------------orin-----------------
+# # cuda
+# set(CUDA_INCLUDE_DIRS /usr/local/cuda-11.4/include)
+# set(CUDA_LIBS /usr/local/cuda-11.4/targets/aarch64-linux/lib)
+
+# # tensorrt
+# set(TensorRT_INCLUDE_DIRS /usr/include)
+# set(TensorRT_LIBS /usr/lib/aarch64-linux-gnu)
+# # ------------------------------------
 
 
 find_package(CUDA REQUIRED)
