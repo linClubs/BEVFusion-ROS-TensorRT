@@ -1,6 +1,35 @@
+#!/bin/bash
+# SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
 
-# 1 配置 CUDA TensorRT cudnn路径
-# ----------------x86------------------
+# export CUDA_VISIBLE_DEVICES=2
+
+# export TensorRT_Lib=/path/to/TensorRT/lib
+# export TensorRT_Inc=/path/to/TensorRT/include
+# export TensorRT_Bin=/path/to/TensorRT/bin
+
+# export TensorRT_Lib=/home/lin/software/TensorRT-8.2.1.8/lib
+# export TensorRT_Inc=/home/lin/software/TensorRT-8.2.1.8/include
+# export TensorRT_Bin=/home/lin/software/TensorRT-8.2.1.8/bin
+
 export TensorRT_Lib=/home/lin/software/TensorRT-8.5.3.1/lib
 export TensorRT_Inc=/home/lin/software/TensorRT-8.5.3.1/include
 export TensorRT_Bin=/home/lin/software/TensorRT-8.5.3.1/bin
@@ -11,26 +40,9 @@ export CUDA_Bin=/usr/local/cuda/bin
 export CUDA_HOME=/usr/local/cuda
 
 export CUDNN_Lib=/usr/local/cuda/lib64
-# -----------------------------------------------------
-
-# ----------------orin--------------------
-# # tensorrt
-# export TensorRT_Inc=/usr/include
-# export TensorRT_Lib=/usr/lib/aarch64-linux-gnu
-# export TensorRT_Bin=/usr/src/tensorrt/bin
-
-# # cuda
-# export CUDA_Lib=/usr/local/cuda-11.4/targets/aarch64-linux/lib
-# export CUDA_Inc=/usr/local/cuda-11.4/include
-# export CUDA_Bin=/usr/local/cuda/bin
-# export CUDA_HOME=/usr/local/cuda
-
-# # cudnn
-# export CUDNN_Lib=/usr/lib/aarch64-linux-gnu
-# -------------------------------------
 
 
-# 2 选择模型3种：resnet50/resnet50int8/swint
+# 选择模型3种：resnet50/resnet50int8/swint
 
 export DEBUG_MODEL=resnet50int8
 # export DEBUG_MODEL=resnet50
@@ -39,7 +51,6 @@ export DEBUG_MODEL=resnet50int8
 # 模型精度2种：fp16/int8
 # export DEBUG_PRECISION=fp16
 export DEBUG_PRECISION=int8
-# ----------------
 
 
 export DEBUG_DATA=example-data
