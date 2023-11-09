@@ -98,14 +98,16 @@ colcon build --symlink-install
 source install/setup.bash
 
 # 3. 运行bevfusion_node
-roslaunch bevfusion bevfusion.launch.py
+ros2 launch bevfusion bevfusion.launch.py
 
 # 4. 播放数据集
- rosbag play nuscenes-103.db3
+ ros2 bag play nuscenes-103.db3
+
+# 5 rviz2结果显示
+rviz2 -d src/BEVFusion-ROS-TensorRT/launch/view.rviz
 ~~~
 
 ---
-
 
 3. 错误修改
 + 报错1 运行报错`tool/simhei.ttf`找不到, 全局搜索`tool/simhei.ttf`或者`UseFont`关键字

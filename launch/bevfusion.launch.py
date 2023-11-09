@@ -1,6 +1,5 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
-# from launch.actions import DeclareLaunchArgument, ExecuteProcess
 
 def generate_launch_description():
 	
@@ -17,6 +16,16 @@ def generate_launch_description():
 		]
 	)
 
+	# launch中启动没有读到rviz配置文件 可以自己修改
+	# rviz_node = Node(
+    #         package='rviz2',
+    #         namespace='',
+    #         executable='rviz2',
+    #         name='rviz2',
+    #         arguments='-d src/BEVFusion-ROS-TensorRT/launch/view.rviz'
+	# )
+
 	return LaunchDescription([
-		node
+		node,
+		# rviz_node
 	])
