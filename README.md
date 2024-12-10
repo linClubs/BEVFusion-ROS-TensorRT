@@ -7,9 +7,15 @@ This repository contains source code and models for BEVFusion online real-time i
 
 # 1 依赖安装
 
-+ **`ubuntu-20.04,galactic,cuda-11.3, cudnn-8.6.0, TensorRT-8.5`**
++ **`ubuntu-22.04,ROS 2 humble,cuda-11.3, cudnn-8.6.0, TensorRT-8.5`**
 
-1. 默认已安装`galactic, cuda, cudnn`, 已下载`TensorRT`源码
+0. build old version of protobuf
+   
++ Ubuntu 22.04 inherently uses protobuf 3.12.4, while current version of BEVFusion needs 3.6.1
++ so build the protobuf v3.6.1 by following the instructions in this repo [protobuf 3.6.1](https://github.com/protocolbuffers/protobuf/tree/v3.6.1)
++ then update the [path_of_the_protobuf_built] of line 41 of this repo's [Cmakefile](https://github.com/thirdcat/BEVFusion-ROS-TensorRT/blob/humble-devel/CMakeLists.txt)
+
+1. 默认已安装`humble, cuda, cudnn`, 已下载`TensorRT`源码
 
 2. `ros`依赖
 
@@ -22,7 +28,7 @@ cd bevfusion_ws/src
 git clone https://github.com/linClubs/BEVFusion-ROS-TensorRT.git 
 
 # 3. 切换galactic-devel分支
-git branch galactic-devel
+git branch humble-devel
 
 # 4. 进入bevfusion_ws工作空间一键安装功能包需要ros依赖
 cd ../ 
