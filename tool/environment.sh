@@ -30,9 +30,9 @@
 # export TensorRT_Inc=/home/lin/software/TensorRT-8.2.1.8/include
 # export TensorRT_Bin=/home/lin/software/TensorRT-8.2.1.8/bin
 
-export TensorRT_Lib=/home/lin/software/TensorRT-8.5.3.1/lib
-export TensorRT_Inc=/home/lin/software/TensorRT-8.5.3.1/include
-export TensorRT_Bin=/home/lin/software/TensorRT-8.5.3.1/bin
+export TensorRT_Lib=/usr/local/TensorRT/lib
+export TensorRT_Inc=/usr/local/TensorRT/include
+export TensorRT_Bin=/usr/local/TensorRT/bin
 
 export CUDA_Lib=/usr/local/cuda/lib64
 export CUDA_Inc=/usr/local/cuda/include

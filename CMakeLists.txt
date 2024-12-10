@@ -6,17 +6,18 @@ add_definitions(-w)
 # set(CMAKE_BUILD_TYPE "Debug")
 
 add_compile_options(-W)
-add_compile_options(-std=c++14)
+add_compile_options(-std=c++17)
 
 set(arch ${CMAKE_HOST_SYSTEM_PROCESSOR})
 
-set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -g -DENABLE_TEXT_BACKEND_STB")
+set(CMAKE_CXX_FLAGS "-std=c++17 -O3 -g -DENABLE_TEXT_BACKEND_STB")
+#set(CMAKE_CXX_FLAGS "-O2 -g -ggdb -fPIC" )
 
 # set(CMAKE_CXX_FLAGS_RELEASE "-std=c++14 -Wextra -Wall -Wno-missing-field-initializers -Wno-deprecated-declarations -O3 -DENABLE_TEXT_BACKEND_STB")
 # set(CMAKE_CXX_FLAGS_DEBUG   "-std=c++14 -O0 -g -DENABLE_TEXT_BACKEND_STB")
 
-set(CUDA_NVCC_FLAGS_RELEASE "-Werror=all-warnings -Xcompiler -std=c++14,-Wextra,-Wall,-Wno-deprecated-declarations,-O3 -DENABLE_TEXT_BACKEND_STB")
-set(CUDA_NVCC_FLAGS_DEBUG   "-std=c++14 -O0 -g -DENABLE_TEXT_BACKEND_STB")
+set(CUDA_NVCC_FLAGS_RELEASE "-Werror=all-warnings -Xcompiler -std=c++17,-Wextra,-Wall,-Wno-deprecated-declarations,-O3 -DENABLE_TEXT_BACKEND_STB")
+set(CUDA_NVCC_FLAGS_DEBUG   "-std=c++17 -O0 -g -DENABLE_TEXT_BACKEND_STB")
 
 set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} 
   # -gencode arch=compute_$ENV{CUDASM},code=compute_$ENV{CUDASM}
@@ -31,18 +32,19 @@ set(CUDA_INCLUDE_DIRS ${CUDA_TOOLKIT_ROOT_DIR}/${CUDA_INSTALL_TARGET_DIR}/includ
 set(CUDA_LIBS ${CUDA_TOOLKIT_ROOT_DIR}/${CUDA_INSTALL_TARGET_DIR}/lib)
 
 # TENSORRT
-set(TensorRT_ROOT /home/lin/software/TensorRT-8.5.3.1)
+set(TensorRT_ROOT /usr/local/TensorRT)
 # set(TensorRT_ROOT ~/share/software/TensorRT-8.5.3.1)
 set(TensorRT_INCLUDE_DIRS ${TensorRT_ROOT}/include)
 set(TensorRT_LIBS ${TensorRT_ROOT}/lib/)
 
 find_package(CUDA REQUIRED)
-find_package(Protobuf REQUIRED)
+find_package(Protobuf PATHS [path_of_the_protobuf_built] REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(PCL REQUIRED)
 
 # ros依赖 find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(pcl_conversions REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
@@ -125,6 +127,7 @@ ament_target_dependencies(bevfusion_node
 	sensor_msgs
 	cv_bridge
   message_filters
+  pcl_conversions
 )
 
 

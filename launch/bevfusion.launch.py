@@ -8,7 +8,8 @@ def generate_launch_description():
 		executable="bevfusion_node",  
 		name='bevfusion_node',       
 		output='screen', 
-		
+        # prefix=['xterm -e gdb -ex run --args'],
+        emulate_tty=True,
 		# 参数列表
 		parameters=[
 			{'model_name': 'resnet50'},
